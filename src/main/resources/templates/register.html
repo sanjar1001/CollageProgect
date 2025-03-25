@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма регистрации для общежития</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Контейнер формы */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow-y: auto; /* Добавляет прокрутку, если форма длинная */
+            max-height: 90vh; /* Ограничение по высоте */
+        }
+
+        /* Заголовок */
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Поля ввода */
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Маленькие пояснения */
+        small {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Кнопка */
+        button {
+            width: 100%;
+            background: #444;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #222;
+        }
+
+        /* Стили для заголовков секций */
+        h3 {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #444;
+            text-align: left;
+        }
+
+        /* Лейблы */
+        label {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* Чтобы форма не упиралась в экран на маленьких устройствах */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="title">Регистрация для заселения в общежитие</h2>
+    <form action="/uploadFile" method="POST" enctype="multipart/form-data">
+
+        <label for="firstName">ФИО</label>
+        <input type="text" id="firstName" name="username" required>
+
+        <label for="phoneNumber">Номер телефона</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="+7{10}" placeholder="+77478889090" required>
+        <small>Формат: +77477210658</small>
+
+        <h3>Перечень документов для заселения в общежитие:</h3>
+
+        <label>1. Заявление на предоставление места в общежитии</label>
+        <input type="file" name="files" required>
+
+        <label>2. Справка о составе семьи (через eGov)</label>
+        <input type="file" name="files" required>
+
+        <label>3. Справка о наличии в семье 4-х или более детей</label>
+        <input type="file" name="files" required>
+
+        <label>4. Справка о подтверждении инвалидности</label>
+        <input type="file" name="files" required>
+
+        <label>5. Копия документа, удостоверяющего личность студента – 2 шт</label>
+        <input type="file" name="files" required>
+
+        <label>6. Копия документа, удостоверяющего личность родителей студента – 2 шт</label>
+        <input type="file" name="files" required>
+
+        <label>7. Фото 3*4 – 4 шт</label>
+        <input type="file" name="files" required>
+
+        <label>8. Выдача справки об отсутствии недвижимого имущества</label>
+        <input type="file" name="files" required>
+
+        <label>9. Нотариальная доверенность на несовершеннолетних студентов</label>
+        <input type="file" name="files" required>
+
+        <label>10. Копия свидетельства о смерти родителя</label>
+        <input type="file" name="files" required>
+
+        <label>11. Справка о эпидокружении</label>
+        <input type="file" name="files" required>
+
+        <button type="submit">Отправить документы</button>
+    </form>
+</div>
+</body>
+</html>
